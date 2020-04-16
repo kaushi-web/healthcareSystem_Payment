@@ -21,40 +21,42 @@ public class paymentService {
 	
 	
 	public String StoreOnlinePayment(Payment payment) {
-		String query1 = " INSERT INTO `payment`(`user_id`,`hospital_id`,`Payment_method`,`appointment_id`,`doctor_id`, `purpose`, `amount`, `status`) VALUES (?.?,?,?,?,?,?,?)";
+		String query1 = " INSERT INTO `payment`(`Payment_method`,`appointment_id`, `purpose`, `amount`, `status`) VALUES (?,?,?,?,?)";
 		
 		String query2 = " INSERT INTO `card_details`(`payment_id`, `card_type`, `card_number`, `cvv`, `expiryDate`) VALUES (?,?,?,?,?)";
 		PreparedStatement preparedStmt1;
 		PreparedStatement preparedStmt2;
-		/*
-		 * DateFormat df = new SimpleDateFormat(" yyyy-mm-dd hh:mm:ss"); Date dateobj =
-		 * new Date(); System.out.println(df.format(dateobj)); Timestamp
-		 * ts=Timestamp.valueOf(df.format(dateobj)); payment.setPaymenttime(ts);
-		 */
+		
 		String output;
 		try {
 			preparedStmt1 = db.connection.prepareStatement(query1);
-			
-			preparedStmt1.setInt(1, payment.getUserid());
-			preparedStmt1.setInt(2, payment.getHospitalid());
-			preparedStmt1.setString(3, payment.getPaymentmethod());
-			preparedStmt1.setInt(4, payment.getAppointmentid());
-			preparedStmt1.setInt(5, payment.getDoctorid());
-			preparedStmt1.setString(6,payment.getPurpose());
-			preparedStmt1.setFloat(7,payment.getAmount());
-			preparedStmt1.setString(8,payment.getStatues());
+			preparedStmt1.setString(1, payment.getPaymentmethod());
+			preparedStmt1.setInt(2,payment.getAppointmentid());
+			preparedStmt1.setString(3,payment.getPurpose());
+			preparedStmt1.setFloat(4,payment.getAmount());
+			preparedStmt1.setString(5,payment.getStatues());
 			preparedStmt1.execute();
+			
+			 String id ="SELECT `payment_id` FROM `payment`";
+			 //payment.setPaymentid(Integer.parseInt(id));
+
+				Statement stmt1 = db.connection.createStatement();
+				ResultSet rs1=stmt1.executeQuery(id);
+				//String paymentid = Integer.toString();
+				payment.setPaymentid(rs1.getInt("payment_id"));
+			  if(payment.getPaymentmethod()=="Card") { 
+				  			
+				          preparedStmt2 =db.connection.prepareStatement(query2);
+				  		  preparedStmt2.setInt(1,payment.getPaymentid());
+						  preparedStmt2.setString(2,payment.getCardtype());
+						  preparedStmt2.setString(3,payment.getCardnumber());
+						  preparedStmt2.setString(4,payment.getCvv());
+						  preparedStmt2.setString(5,payment.getExpiredate()); 
+						  preparedStmt2.execute();
+			  }
 			 
-			 if(payment.getPaymentmethod()=="Card") {
-			preparedStmt2 = db.connection.prepareStatement(query2);
-			preparedStmt2.setInt(1,1);
-			preparedStmt2.setString(2,payment.getCardtype());
-			preparedStmt2.setString(3,payment.getCardnumber());
-			preparedStmt2.setString(4,payment.getCvv());
-			preparedStmt2.setString(5,payment.getExpiredate());
-			preparedStmt2.execute();
-			//db.connection.close();
-			}
+			  //db.connection.close(); }
+			 
 			
 			 output = "Inserted successfully";
 			
