@@ -139,15 +139,20 @@ public String readAllPymentRecords() {
 		String output;
 		
 		// create a prepared statement
-					String query = "DELETE FROM `card_details` WHERE `payment_id`=?";
-					PreparedStatement preparedStmt;
+		            String query1 = "UPDATE `payment` SET `status`='cancel' WHERE `payment_id`=?";
+					String query2 = "DELETE FROM `card_details` WHERE `payment_id`=?";
+					PreparedStatement preparedStmt1;
+					PreparedStatement preparedStmt2;
 					try {
 						System.out.print("==============="+payment_id+"===============");
-					preparedStmt= db.connection.prepareStatement(query);
+					preparedStmt1= db.connection.prepareStatement(query1);
+					preparedStmt2= db.connection.prepareStatement(query2);
 					// binding values
-					preparedStmt.setInt(1, Integer.parseInt(payment_id));
+					preparedStmt1.setInt(1, Integer.parseInt(payment_id));
+					preparedStmt2.setInt(1, Integer.parseInt(payment_id));
 					// execute the statement
-					preparedStmt.execute();
+					preparedStmt1.execute();
+					preparedStmt2.execute();
 					db.connection.close();
 					output = "Deleted successfully";
 				} catch (Exception e) {
@@ -156,7 +161,6 @@ public String readAllPymentRecords() {
 				}
 				return output;
 	}
-	
 	
 }
 
