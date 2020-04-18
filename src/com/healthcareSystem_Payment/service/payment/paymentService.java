@@ -120,6 +120,8 @@ public String readAllPymentRecords() {
 		return output;
 		
 	}
+
+
 public String updatePaymentdetails(Payment payment) { 
 	String output = "";
 	String query = "UPDATE `payment` SET `Payment_method`=?,`purpose`=?,`amount`=?,`status`=? WHERE `payment_id`=?";
