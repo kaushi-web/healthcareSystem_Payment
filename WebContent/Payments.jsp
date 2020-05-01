@@ -22,17 +22,49 @@
 				<h1 class="m-3">Payment Details</h1>
 
 				<form id="formPayment" name="formPayment">
-					User ID: <input id="hospName" name="hospName" type="text"
-						class="form-control form-control-sm"> <br>
-					Appointment ID: <input id="hospAddr" name="hospAddr" type="text"
-						class="form-control form-control-sm"> <br> Payment
-					Method: <input id="hospEmail" name="hospEmail" type="text"
-						class="form-control form-control-sm"> <br> Payment
-					Purpose: <input id="hospPhone" name="hospPhone" type="text"
-						class="form-control form-control-sm"> <br> Amount: <input
-						id="hospRegDate" name="hospRegDate" type="text"
-						class="form-control form-control-sm"> <br> <input
-						id="btnSave" name="btnSave" type="button" value="Save"
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-pretend">
+
+							<span class="input-group-text" id="lblname"> User ID: </span>
+						</div>
+						<input id="hospName" name="hospName" type="text">
+					</div>
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-pretend">
+
+							<span class="input-group-text" id="lblname"> Appointment
+								ID: </span>
+						</div>
+						<input id="hospName" name="hospName" type="text">
+					</div>
+
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepared">
+							<span class="input-group-text" id="lblname">Payment
+								Method</span>
+						</div>
+						&nbsp;&nbsp;Cash <input id="radopaymentmethodCash"
+							name="radiopaymentmethod" type="radio" value="Cash">
+						&nbsp;&nbsp;Card <input id="radopaymentmethodCard"
+							name="radiopaymentmethod" type="radio" value="Card">
+					</div>
+
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-pretend">
+
+							<span class="input-group-text" id="lblname"> Purpose: </span>
+						</div>
+						<input id="hospName" name="hospName" type="text">
+					</div>
+
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-pretend">
+
+							<span class="input-group-text" id="lblname"> Amount: </span>
+						</div>
+						<input id="hospName" name="hospName" type="text">
+					</div>
+					<input id="btnSave" name="btnSave" type="button" value="Save"
 						class="btn btn-primary"> <input type="hidden"
 						id="hidIHospIDSave" name="hidIHospIDSave" value="">
 				</form>
