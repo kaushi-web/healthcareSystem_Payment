@@ -32,24 +32,25 @@ $("#formPayment").submit();
 });
 function validateItemForm(){
 	
+	//user ID
 	if ($("#userid").val().trim() == "")
 	 {
 	 return "Insert User ID.";
 	 }
 	
-	// Hospital Address
+	// Appointment ID
 	if ($("#appointmentid").val().trim() == "")
 	 {
 	 return "Insert Appointment ID.";
 	 }
 	
-	//Hospital Email
+	//Purpose
 	if ($("#purpose").val().trim() == "")
 	 {
 	 return "Insert purpose.";
 	 }
 
-	//Hospital Phone
+	//Amount
 	if ($("#amount").val().trim() == "")
 	 {
 	 return "Insert amount.";
