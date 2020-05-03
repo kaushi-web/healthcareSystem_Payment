@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="View/bootstrap.min.css">
 <script src="Component/jquery-3.5.0.min.js"></script>
-<script src="Component/payment.js"></script>
+<script src="Component/carddetails.js"></script>
 
 </head>
 <body>
@@ -19,35 +19,49 @@
 				<h1 class="m-3">Card Details</h1>
 
 				<form id="formPayment_Card" name="formPayment_Card">
-					Payment ID: <input id="hospName" name="hospName" type="text"
-						class="form-control form-control-sm"> <br> Card Type:
-					<input id="hospAddr" name="hospAddr" type="text"
-						class="form-control form-control-sm"> <br> Payment
-					Card Number: <input id="hospEmail" name="hospEmail" type="text"
-						class="form-control form-control-sm"> <br> CVV: <input
-						id="hospPhone" name="hospPhone" type="text"
-						class="form-control form-control-sm"> <br> Expire
-					Date: <input id="hospRegDate" name="hospRegDate" type="text"
-						class="form-control form-control-sm"> <br> <input
-						id="btnSave" name="btnSave" type="button" value="Save"
-						class="btn btn-primary"> <input type="hidden"
-						id="hidIHospIDSave" name="hidIHospIDSave" value="">
-				</form>
+					<div class="input-group input-group-sm mb-3">					
+			<div class="input-group-pretend">
+				<span class="input-group-text" id="lblname"> Card Type: </span>
 			</div>
-		</div>
-		<br>
+			<input id="cardtype" name="cardtype" type="text">
+			</div>
+			
+			<div class="input-group input-group-sm mb-3">	
+			<div class="input-group-pretend">
+				<span class="input-group-text" id="lblname"> Card Number: </span>
+			</div>
+			<input id="cardnumber" name="cardnumber" type="text">
+			</div>
+			
+			<div class="input-group input-group-sm mb-3">
+			<div class="input-group-pretend">
+				<span class="input-group-text" id="lblname"> CVV: </span>
+			</div>
+			<input id="cvv" name="cvv" type="text">
+			</div>
+			
+			<div class="input-group input-group-sm mb-3">
+			<div class="input-group-pretend">
+				<span class="input-group-text" id="lblname"> Expire Date: </span>
+			</div>
+			<input id="expiredate" name="expiredate" type="text">
+			</div>
 
-		<div class="row">
-			<div class="col-8" id="colPayments_Cards"></div>
+			<div id="alertSuccess" class="alert alert-success"></div>
+			<div id="alertError" class="alert alert-danger"></div>
 
+			<input type="button" id="btnSave" value="Save"
+				class="btn btn-primary">
+			</form>
 		</div>
-		<div id="alertSuccess" class="alert alert-success">
-			<% out.print(session.getAttribute("statusMsg")); %>
-		</div>
-		<div id="alertError" class="alert alert-danger"></div>
-		<br>
+	</div>
+	
+
+	<div class="row">
+		<div class="col-8" id="colPayments_Cards"></div>
 
 	</div>
+	
 
 </body>
 </html>

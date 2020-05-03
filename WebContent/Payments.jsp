@@ -24,7 +24,6 @@
 				<form id="formPayment" name="formPayment">
 					<div class="input-group input-group-sm mb-3">
 						<div class="input-group-pretend">
-
 							<span class="input-group-text" id="lblname"> User ID: </span>
 						</div>
 						<input id="userid" name="userid" type="text">
@@ -72,7 +71,7 @@
 					<input type="button" id="btnSave" value="Save"
 						class="btn btn-primary">
 				</form>
-				</form>
+			
 			</div>
 		</div>
 		<br>
