@@ -27,7 +27,7 @@
 
 							<span class="input-group-text" id="lblname"> User ID: </span>
 						</div>
-						<input id="hospName" name="hospName" type="text">
+						<input id="userid" name="userid" type="text">
 					</div>
 					<div class="input-group input-group-sm mb-3">
 						<div class="input-group-pretend">
@@ -35,13 +35,12 @@
 							<span class="input-group-text" id="lblname"> Appointment
 								ID: </span>
 						</div>
-						<input id="hospName" name="hospName" type="text">
+						<input id="appointmentid" name="appointmentId" type="text">
 					</div>
 
 					<div class="input-group input-group-sm mb-3">
 						<div class="input-group-prepared">
-							<span class="input-group-text" id="lblname">Payment
-								Method</span>
+							<span class="input-group-text" id="lblname">Payment Method</span>
 						</div>
 						&nbsp;&nbsp;Cash <input id="radopaymentmethodCash"
 							name="radiopaymentmethod" type="radio" value="Cash">
@@ -54,7 +53,7 @@
 
 							<span class="input-group-text" id="lblname"> Purpose: </span>
 						</div>
-						<input id="hospName" name="hospName" type="text">
+						<input id="purpose" name="purpose" type="text">
 					</div>
 
 					<div class="input-group input-group-sm mb-3">
@@ -62,11 +61,17 @@
 
 							<span class="input-group-text" id="lblname"> Amount: </span>
 						</div>
-						<input id="hospName" name="hospName" type="text">
+						<input id="amount" name="amount" type="text">
 					</div>
-					<input id="btnSave" name="btnSave" type="button" value="Save"
-						class="btn btn-primary"> <input type="hidden"
-						id="hidIHospIDSave" name="hidIHospIDSave" value="">
+
+
+
+					<div id="alertSuccess" class="alert alert-success"></div>
+					<div id="alertError" class="alert alert-danger"></div>
+
+					<input type="button" id="btnSave" value="Save"
+						class="btn btn-primary">
+				</form>
 				</form>
 			</div>
 		</div>
@@ -76,10 +81,7 @@
 			<div class="col-8" id="colPayments"></div>
 
 		</div>
-		<div id="alertSuccess" class="alert alert-success">
-			<% out.print(session.getAttribute("statusMsg")); %>
-		</div>
-		<div id="alertError" class="alert alert-danger"></div>
+
 		<br>
 
 	</div>
