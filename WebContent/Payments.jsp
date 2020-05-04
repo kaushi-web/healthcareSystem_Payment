@@ -7,28 +7,32 @@
 <%@ page import="com.healthcareSystem_Payment.resources.*"%>
 <%
 	if (request.getParameter("userid") != null) {
-	paymentService paymnentServiceObj = new paymentService();
+		PaymentResources paymentresources = new PaymentResources();
 	String stsMsg = "";
 
-	//Insert new hospital
+	//Insert new payment
 	if (request.getParameter("hiddenPaymentIDSave") == "") {
-		PaymentResources paymentresources = new PaymentResources();
-		stsMsg = paymentresources.StoreOnlinePayment(request.getParameter("radiopaymentmethod"),Integer.parseInt(request.getParameter("appointmentid")),Integer.parseInt( request.getParameter("userid")), request.getParameter("purpose"),request.getParameter("status"),Float.parseFloat(request.getParameter("amount")),request.getParameter("card_type"),request.getParameter("card_number"),request.getParameter("cvv"),request.getParameter("expiryDate"));
+		stsMsg = paymentresources.StoreOnlinePayment(request.getParameter("radiopaymentmethod"),
+		Integer.parseInt(request.getParameter("appointmentid")),
+		Integer.parseInt(request.getParameter("userid")), request.getParameter("purpose"),
+		request.getParameter("status"), Float.parseFloat(request.getParameter("amount")),
+		request.getParameter("card_type"), request.getParameter("card_number"), request.getParameter("cvv"),
+		request.getParameter("expiryDate"));
 
 	}
 	//Update existing hospital
-	/* else {
-		stsMsg = hospObj.updateHospitals(request.getParameter("hidIHospIDSave"), request.getParameter("hospName"),
+	 /* else {
+		stsMsg = paymentresources.updatePayments(request.getParameter("hidIHospIDSave"), request.getParameter("hospName"),
 		request.getParameter("hospAddr"), request.getParameter("hospEmail"), request.getParameter("hospPhone"),
 		request.getParameter("hospRegDate"), request.getParameter("hospCharge"));
-	} */
+	}  */
 }
 //Deelete existing hosptal
-/* if (request.getParameter("hidHospIDDelete") != null) {
+ /* if (request.getParameter("hidHospIDDelete") != null) {
 	Hospital hospObj = new Hospital();
 	String stsMsg = hospObj.deleteHospital(request.getParameter("hidHospIDDelete"));
 	session.setAttribute("statusMsg", stsMsg);
-} */
+}  */
 %>
 
 <!DOCTYPE html>
@@ -49,7 +53,8 @@
 			<div class="col-8">
 				<h1 class="m-3">Payment Details</h1>
 
-				<form id="formPayment" name="formPayment" method="post" action="Payments.jsp">
+				<form id="formPayment" name="formPayment" method="post"
+					action="Payments.jsp">
 					<div class="input-group input-group-sm mb-3">
 						<div class="input-group-pretend">
 							<span class="input-group-text" id="lblname"> User ID: </span>
@@ -98,7 +103,7 @@
 						<input id="amount" name="amount" type="text">
 					</div>
 
-
+					
 
 					<div id="alertSuccess" class="alert alert-success"></div>
 					<div id="alertError" class="alert alert-danger"></div>

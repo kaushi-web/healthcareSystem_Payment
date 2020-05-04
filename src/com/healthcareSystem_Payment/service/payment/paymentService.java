@@ -82,7 +82,7 @@ public String readAllPymentRecords() {
 		
 		String output="";
 		// Prepare the html table to be displayed
-					output = "<table border=\"1\"><tr><th>Payment ID</th><th>Appointment ID</th><th>User ID</th><th>Paymment Method</th><th>Payment time</th><th>Purpose</th><th>Amount</th><th>Statues</th></tr>";
+					output = "<table border=\"1\"><tr><th>Payment ID</th><th>Appointment ID</th><th>User ID</th><th>Paymment Method</th><th>Payment time</th><th>Purpose</th><th>Amount</th><th>Statues</th><th>Update</th><th>delete</th></tr>";
 					String query = "select * from `payment`";
 					try {
 					
